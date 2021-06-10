@@ -116,7 +116,7 @@ def main():
         #print(model.predict(vectorLSTM))
         
         classifiers = ["RF_TFIDF","RF_BOW","SVM_TFIDF","SVM_BOW","NB_TFIDF","NB_BOW","LSTM"]
-        results = [RF_TFIDF.predict(vectorTFIDF),RF_BOW.predict(vectorBOW),SVM_TFIDF.predict(vectorBOW),SVM_BOW.predict(vectorBOW),NB_TFIDF.predict(vectorBOW),NB_TFIDF.predict(vectorBOW),model.predict(vectorBOW)]
+        results = [RF_TFIDF.predict(vectorTFIDF),RF_BOW.predict(vectorBOW),SVM_TFIDF.predict(vectorTFIDF),SVM_BOW.predict(vectorBOW),NB_TFIDF.predict(vectorTFIDF),NB_TFIDF.predict(vectorBOW),model.predict(vectorLSTM)]
         
         sourcedata = pd.DataFrame({'Classifiers':classifiers,'Detection':results})
         
