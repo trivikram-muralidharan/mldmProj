@@ -28,7 +28,7 @@ from sklearn.naive_bayes import MultinomialNB
 
 import pickle
 
-model = load_model("modelsAndVectorizers\\lstmFinal")
+model = load_model("modelsAndVectorizers\\lstmFinal.model")
 
 with open("modelsAndVectorizers\\tokenizer.pkl","rb") as f:
     tokenizer = pickle.load(f)
