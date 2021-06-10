@@ -143,7 +143,7 @@ def main():
     
     st.sidebar.text("Choose from the following options:")
     
-    options = ["Demo","Analysis","Metrics"]
+    options = ["Demo","Experiment 1 - Model and Feature Representation Selection"]
     
     selected_page = st.sidebar.selectbox("Select the function", options)
     
@@ -178,7 +178,58 @@ def main():
         
         #
         
-    elif(selected_page == "Analysis"):
+    elif(selected_page == "Experiment 1 - Model and Feature Representation Selection"):
+        Orders = ["RF-TFIDF","NB-TFIDF","SVM-TFIDF","RF-BOW","NB-BOW","SVM-BOW","LSTM-W2V"]
+        #Accs = [0.9896,0.9329,0.9948,0.9903,0.9519,0.9956,0.9967]
+        #TPRs = [0.9887,0.9484,0.9951,0.9907,0.9531,0.9952,0.9960]
+        #FPRs = [0.011,0.083,0.005,0.010,0.049,0.004,0.003]
+        #AUCs = [0.9885,0.9322,0.9947,0.9903,0.9518,0.9956,0.9990]
+        
+        
+        st.write(""" 
+                 ### Experiment 1 - Performance Comparison between models and text representation methods:
+                 
+                 """)
+        
+        dfnew = pd.DataFrame( [['RF-TFIDF',0.9896,'Accuracy'],
+                              ['RF-TFIDF',0.9887,'TPR'],
+                              ['RF-TFIDF',0.011,'FPR'],
+                              ['RF-TFIDF',0.9885,'AUC'],
+                              ['NB-TFIDF',0.9329,'Accuracy'],
+                              ['NB-TFIDF',0.9484,'TPR'],
+                              ['NB-TFIDF',0.083,'FPR'],
+                              ['NB-TFIDF',0.9322,'AUC'],
+                              ['SVM-TFIDF',0.9948,'Accuracy'],
+                              ['SVM-TFIDF',0.9951,'TPR'],
+                              ['SVM-TFIDF',0.005,'FPR'],
+                              ['SVM-TFIDF',0.9947,'AUC'],
+                              ['RF-BOW',0.9903,'Accuracy'],
+                              ['RF-BOW',0.9907,'TPR'],
+                              ['RF-BOW',0.010,'FPR'],
+                              ['RF-BOW',0.9903,'AUC'],
+                              ['NB-BOW',0.9519,'Accuracy'],
+                              ['NB-BOW',0.9531,'TPR'],
+                              ['NB-BOW',0.049,'FPR'],
+                              ['NB-BOW',0.9518,'AUC'],
+                              ['SVM-BOW',0.9956,'Accuracy'],
+                              ['SVM-BOW',0.9952,'TPR'],
+                              ['SVM-BOW',0.004,'FPR'],
+                              ['SVM-BOW',0.9956,'AUC'],
+                              ['LSTM-W2V',0.9967,'Accuracy'],
+                              ['LSTM-W2V',0.9960,'TPR'],
+                              ['LSTM-W2V',0.003,'FPR'],
+                              ['LSTM-W2V',0.9990,'AUC']],
+                              columns = ['Classifier','Value','Metric'])
+        
+        st.write("  \n")
+        
+        
+        
+        #sourcedata1 = pd.DataFrame({'Classifier':Orders,'Accuracy':Accs,'TPR':TPRs,'FPR':FPRs,'AUC':AUCs})
+        
+        chart = alt.Chart(dfnew).mark_bar().encode(x="Metric",y='Value',color='Metric',column='Classifier',tooltip='Value').properties(width=100,height=500)
+        
+        st.write(chart)
         print("ololo")
     elif(selected_page == "Metrics"):
         print("ololo")
