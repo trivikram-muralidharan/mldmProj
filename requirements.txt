@@ -4,3 +4,4 @@ numpy==1.19.2
 tensorflow==1.15.0
 h5py==2.10.0
 pandas==1.2.3
+altair==4.1.0
