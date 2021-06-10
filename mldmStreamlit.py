@@ -13,6 +13,8 @@ import warnings
 warnings.filterwarnings('ignore')
 import sys
 import numpy as np
+import altair as alt
+import pandas as pd
 
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -105,15 +107,20 @@ def main():
         vectorTFIDF = tfidfVectorizer.transform([inputText])
         vectorBOW = countVectorizer.transform([inputText])
         
-        print(RF_TFIDF.predict(vectorTFIDF))
-        print(RF_BOW.predict(vectorBOW))
-        print(SVM_TFIDF.predict(vectorTFIDF))
-        print(SVM_BOW.predict(vectorBOW))
-        print(NB_TFIDF.predict(vectorTFIDF))
-        print(NB_BOW.predict(vectorBOW))
-        print(model.predict(vectorLSTM))
+        #print(RF_TFIDF.predict(vectorTFIDF))
+        #print(RF_BOW.predict(vectorBOW))
+        #print(SVM_TFIDF.predict(vectorTFIDF))
+        #print(SVM_BOW.predict(vectorBOW))
+        #print(NB_TFIDF.predict(vectorTFIDF))
+        #print(NB_BOW.predict(vectorBOW))
+        #print(model.predict(vectorLSTM))
         
+        classifiers = ["RF_TFIDF","RF_BOW","SVM_TFIDF","SVM_BOW","NB_TFIDF","NB_BOW","LSTM"]
+        results = [RF_TFIDF.predict(vectorTFIDF),RF_BOW.predict(vectorBOW),SVM_TFIDF.predict(vectorBOW),SVM_BOW.predict(vectorBOW),NB_TFIDF.predict(vectorBOW),NB_TFIDF.predict(vectorBOW),model.predict(vectorBOW)]
         
+        sourcedata = pd.DataFrame({'Classifiers':classifiers,'Detection':results})
+        
+        st.write(alt.Chart(sourcedata).mark_bar().encode(x='Classifiers',y='Detection'))
         
         #
         
