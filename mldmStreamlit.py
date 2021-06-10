@@ -120,7 +120,10 @@ def main():
         
         sourcedata = pd.DataFrame({'Classifiers':classifiers,'Detection':results})
         
-        st.write(alt.Chart(sourcedata).mark_bar().encode(x='Classifiers',y='Detection', tooltip='Detection'))
+        st.write(alt.Chart(sourcedata).mark_bar().encode(x='Classifiers',y='Detection', tooltip='Detection').properties(
+    width=200,
+    height=300
+))
         
         #
         
