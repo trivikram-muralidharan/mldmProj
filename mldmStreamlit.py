@@ -28,46 +28,46 @@ from sklearn.naive_bayes import MultinomialNB
 
 import pickle
 
-model = load_model("modelsAndVectorizers\\lstmFinal.model")
+model = load_model("lstmFinal.model")
 
-with open("modelsAndVectorizers\\tokenizer.pkl","rb") as f:
+with open("tokenizer.pkl","rb") as f:
     tokenizer = pickle.load(f)
 
 countVectorizer = ""
-with open("modelsAndVectorizers\\CountVectorizer.pkl","rb") as f:
+with open("CountVectorizer.pkl","rb") as f:
     countVectorizer = pickle.load(f)
 
 tfidfVectorizer = ""
-with open("modelsAndVectorizers\\TFidfVectorizer.pkl","rb") as f:
+with open("TFidfVectorizer.pkl","rb") as f:
     tfidfVectorizer = pickle.load(f)
 
 RF_TFIDF = ""
-with open("modelsAndVectorizers\\RF_TFIDF.pkl","rb") as f:
+with open("RF_TFIDF.pkl","rb") as f:
     RF_TFIDF = pickle.load(f)
 
 
 RF_BOW = ""
-with open("modelsAndVectorizers\\RF_BOW.pkl","rb") as f:
+with open("RF_BOW.pkl","rb") as f:
     RF_BOW = pickle.load(f)
 
 
 NB_TFIDF = ""
-with open("modelsAndVectorizers\\NaiveTFIDF.pkl","rb") as f:
+with open("NaiveTFIDF.pkl","rb") as f:
     NB_TFIDF = pickle.load(f)
 
 
 NB_BOW = ""
-with open("modelsAndVectorizers\\NaiveBOW.pkl","rb") as f:
+with open("NaiveBOW.pkl","rb") as f:
     NB_BOW = pickle.load(f)
 
 
 SVM_TFIDF = ""
-with open("modelsAndVectorizers\\svmTFIDF.pkl","rb") as f:
+with open("svmTFIDF.pkl","rb") as f:
     SVM_TFIDF = pickle.load(f)
 
 
 SVM_BOW = ""
-with open("modelsAndVectorizers\\svmBOW.pkl","rb") as f:
+with open("svmBOW.pkl","rb") as f:
     SVM_BOW = pickle.load(f)
 
 
